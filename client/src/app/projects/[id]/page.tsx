@@ -3,6 +3,9 @@
 import React, { useState } from 'react'
 import ProjectHeader from "../ProjectHeader";
 import Board from '../BoardView';
+import List from '../ListView';
+import TimeLine from '../TimelineView';
+import TableView from '../TableView';
 
 type Props = {
     params: { id: string }
@@ -20,6 +23,15 @@ const Project = ({ params }: Props) => {
         <ProjectHeader activeTab={activeTab} setActiveTab={setActiveTab} />
         { activeTab === "Board" && (
             <Board id={id} setIsModalNewTaskOpen={setIsModalNewTaskOpen}/>
+        )}
+        { activeTab === "List" && (
+            <List id={id} setIsModalNewTaskOpen={setIsModalNewTaskOpen}/>
+        )}
+        { activeTab === "Timeline" && (
+            <TimeLine id={id} setIsModalNewTaskOpen={setIsModalNewTaskOpen}/>
+        )}
+        { activeTab === "Table" && (
+            <TableView id={id} setIsModalNewTaskOpen={setIsModalNewTaskOpen}/>
         )}
     </div>
   )
